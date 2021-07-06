@@ -8,6 +8,17 @@ from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression  
 from sklearn.ensemble import RandomForestClassifier
 
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
+background-size: cover;
+}
+</style>
+'''
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
 # Load the DataFrame
 csv_file = 'D:\Programs\Python\General\Streamlit\penguin.csv'
 df = pd.read_csv(csv_file)
@@ -27,7 +38,6 @@ df['sex'] = df['sex'].map({'Male':0,'Female':1})
 
 # Convert the non-numeric column 'island' to numeric in the DataFrame
 df['island'] = df['island'].map({'Biscoe': 0, 'Dream': 1, 'Torgersen':2})
-
 
 # Create X and y variables
 X = df[['island', 'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g', 'sex']]
